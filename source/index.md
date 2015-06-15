@@ -133,6 +133,8 @@ curl "http://api.earlyclaim.com/reservations"
       "subscriptionID":"subscriptionID",
       "status":"status of reservation",
       "username":"user username",
+      "screenName":"user screenName",
+      "profilePicture":"url of the profile picture"
       "email":"earlyclaim user email",
       "trust":"user trust level"
     }
@@ -182,6 +184,8 @@ curl "http://api.earlyclaim.com/reservations/:ReservationID"
       "subscriptionID":"subscriptionID",
       "status":"status of reservation",
       "username":"user username",
+      "screenName":"user screenName",
+      "profilePicture":"url of the profile picture"
       "email":"earlyclaim user email",
       "trust":"user trust level"
 }
@@ -365,6 +369,8 @@ This URL should always return a 200 OK HTTP response when invoked by Earlyclaim.
           "subscriptionID":"subscriptionID",
           "status":"status of reservation",
           "username":"user username",
+          "screenName":"user screenName",
+          "profilePicture":"url of the profile picture"
           "email":"earlyclaim user email",
           "trust":"user trust level"
     },
