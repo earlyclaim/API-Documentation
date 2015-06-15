@@ -59,11 +59,11 @@
 </blockquote>
 <pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"ec-button"</span> <span class="na">data-callback=</span><span class="s">"your callback endpoint after authorization"</span><span class="nt">&gt;&lt;/div&gt;</span> <span class="c">&lt;!-- Put this html in the place of the button --&gt;</span>
 <span class="nt">&lt;script&gt;</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="kd">var</span> <span class="nx">js</span><span class="p">,</span> <span class="nx">ecjs</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
   <span class="nx">js</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
   <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"//cdn.earlyclaim.com/sdk.js#bId=earlyclaimBusinessId"</span><span class="p">;</span>
-  <span class="nx">fjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span><span class="p">);</span>
+  <span class="nx">ecjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span> <span class="nx">ecjs</span><span class="p">);</span>
 <span class="p">}(</span><span class="nb">document</span><span class="p">,</span> <span class="s1">'script'</span><span class="p">,</span> <span class="s1">'earlyclaim-jssdk'</span><span class="p">));</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <pre class="highlight shell"><code><span class="c"># No shell provided</span>
@@ -149,6 +149,8 @@ You must replace <code>earlyclaimBusinessToken</code> with your personal API key
       </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"screenName"</span><span class="p">:</span><span class="s2">"user screenName"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profilePicture"</span><span class="p">:</span><span class="s2">"url of the profile picture"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -201,6 +203,8 @@ Remember — a happy startup  is an authenticated startup!
       </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"screenName"</span><span class="p">:</span><span class="s2">"user screenName"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profilePicture"</span><span class="p">:</span><span class="s2">"url of the profile picture"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -391,6 +395,8 @@ In the Startup dashboard you have to setup the web-hook url where the Earlyclaim
           </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"screenName"</span><span class="p">:</span><span class="s2">"user screenName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"profilePicture"</span><span class="p">:</span><span class="s2">"url of the profile picture"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
     </span><span class="p">},</span><span class="w">
