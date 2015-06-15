@@ -30,11 +30,11 @@ We have language bindings in Shell, Node.js (comming soon), PHP (comming soon), 
 ```html
 <div id="ec-button" data-callback="your callback endpoint after authorization"></div> <!-- Put this html in the place of the button -->
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
+  var js, ecjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//cdn.earlyclaim.com/sdk.js#bId=earlyclaimBusinessId";
-  fjs.parentNode.insertBefore(js, fjs);
+  ecjs.parentNode.insertBefore(js, ecjs);
 }(document, 'script', 'earlyclaim-jssdk'));</script>
 ```
 
@@ -134,7 +134,7 @@ curl "http://api.earlyclaim.com/reservations"
       "status":"status of reservation",
       "username":"user username",
       "screenName":"user screenName",
-      "profilePicture":"url of the profile picture"
+      "profilePicture":"url of the profile picture",
       "email":"earlyclaim user email",
       "trust":"user trust level"
     }
@@ -185,7 +185,7 @@ curl "http://api.earlyclaim.com/reservations/:ReservationID"
       "status":"status of reservation",
       "username":"user username",
       "screenName":"user screenName",
-      "profilePicture":"url of the profile picture"
+      "profilePicture":"url of the profile picture",
       "email":"earlyclaim user email",
       "trust":"user trust level"
 }
@@ -370,7 +370,7 @@ This URL should always return a 200 OK HTTP response when invoked by Earlyclaim.
           "status":"status of reservation",
           "username":"user username",
           "screenName":"user screenName",
-          "profilePicture":"url of the profile picture"
+          "profilePicture":"url of the profile picture",
           "email":"earlyclaim user email",
           "trust":"user trust level"
     },
