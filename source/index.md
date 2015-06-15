@@ -1,14 +1,14 @@
 ---
-title: API Reference
+title: Earlyclaim API
 
 language_tabs:
   - shell
-  - ruby
-  - python
+  - html
+  - javascript
+  - php
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='http://earlyclaim.com'>Sign Up to submit your startup</a>
 
 includes:
   - errors
@@ -18,151 +18,373 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Earlyclaim API documentation! You can use our API to access Earlyclaim API endpoints, which a startup can comunicate with Earlyclaim database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in Shell, Node.js (comming soon), PHP (comming soon), iOS (working on)! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+
+# Buttons
+
+> To integrate the EarlyClaim buttons use this code in your frontend HTML
+
+```html
+<div id="ec-button" data-callback="your callback endpoint after authorization"></div> <!-- Put this html in the place of the button -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//cdn.earlyclaim.com/sdk.js#bId=earlyclaimBusinessId";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'earlyclaim-jssdk'));</script>
+```
+
+```shell
+# No shell provided
+```
+
+```javascript
+# No node.js provided
+```
+
+```php
+# No PHP provided
+```
+> Make sure to replace `earlyclaimBusinessId` with your API key.
+
+Earlyclaim Buttons are pretty simple to integrate in your frontend. You can register to Earlyclaim as a startup and get your Earlyclaim Business ID
+
+[Learn more](http://earlyclaim.com/learn-more/startup)
+
+<aside class="notice">
+You must replace <code>earlyclaimBusinessId</code> with your personal API key.
+</aside>
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
+```php
+# No PHP provided
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `earlyclaimBusinessToken` with your Business API Token.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Earlyclaim uses API Bearer Authorization  Tokens to allow access to the API.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Earlyclaim expects for the API Token to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: Bearer earlyclaimBusinessToken`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>earlyclaimBusinessToken</code> with your personal API key.
 </aside>
 
-# Kittens
+# Reservations
 
-## Get All Kittens
+## Get All the reservations
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+```php
+# No PHP provided
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Isis",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/3"
-  -H "Authorization: meowmeowmeow"
+curl "http://api.earlyclaim.com/reservations"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Isis",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "info": {
+    "businessID": "yourBusinessID",
+    "action": "reservations",
+    "total": "<total number of reservations>",
+    "results": "<current number of reservations>"
+  },
+  "query": {
+    "limit": 30,
+    "self": "http://api.earlyclaim.com/reservations/?skip=0",
+    "prev": "http://api.earlyclaim.com/reservations/?skip=0",
+    "next": "http://api.earlyclaim.com/reservations/?skip=30"
+  },
+  "data": [
+    {
+      "subscriptionID":"subscriptionID",
+      "status":"status of reservation",
+      "username":"user username",
+      "email":"earlyclaim user email",
+      "trust":"user trust level"
+    }
+  ],
+  "createdAt": "GMT time of the launch freeze reservations"  
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+This endpoint retrieves all the reservations paginated. You can ask for the next page of result following the next query link.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET http://api.earlyclaim.com/reservations`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+skip | 0 | skip N of user reservaitons.
+
+<aside class="success">
+Remember — a happy startup  is an authenticated startup!
+</aside>
+
+## Get a Specific Reservation
+
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
+```
+
+```php
+# No PHP provided
+```
+
+```shell
+curl "http://api.earlyclaim.com/reservations/:ReservationID"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "subscriptionID":"subscriptionID",
+      "status":"status of reservation",
+      "username":"user username",
+      "email":"earlyclaim user email",
+      "trust":"user trust level"
+}
+```
+
+This endpoint retrieves a specific reservation.
+
+
+### HTTP Request
+
+`GET http://api.earlyclaim.com/reservations/:ReservationID`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the cat to retrieve
+ID | The ID of the subscription to retrieve
+
+## Accept a Specific Reservation
+
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
+```
+
+```php
+# No PHP provided
+```
+
+```shell
+curl -X POST "http://api.earlyclaim.com/reservations/:ReservationID/accept"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "subscriptionID":"subscriptionID",
+      "status":"subscribed",
+      "username":"user username"
+}
+```
+
+This endpoint accept a specific reservation.
+
+
+### HTTP Request
+
+`POST http://api.earlyclaim.com/reservations/:ReservationID/accept`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the subscription to accept
+
+<aside class="notice">
+You must accept a subscription if you don't the reservation will not be notified.
+</aside>
+
+## Deny a Specific Reservation
+
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
+```
+
+```php
+# No PHP provided
+```
+
+```shell
+curl -X POST "http://api.earlyclaim.com/reservations/:ReservationID/deny"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "subscriptionID":"subscriptionID",
+      "status":"denied",
+      "username":"user username"
+}
+```
+
+This endpoint deny a specific reservation.
+
+
+### HTTP Request
+
+`POST http://api.earlyclaim.com/reservations/:ReservationID/deny`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the subscription to deny
+
+<aside class="notice">
+If the subscription will deny the user will be notified.
+</aside>
+
+## Ask for a backup username for a Specific Reservation
+
+```html
+# No HTML provided
+```
+```javascript
+# No node.js provided
+```
+
+```php
+# No PHP provided
+```
+
+```shell
+curl "http://api.earlyclaim.com/reservations/:ReservationID/backup"
+  -H "Authorization: Bearer earlyclaimBusinessToken"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+      "subscriptionID":"subscriptionID",
+      "username":"a backup username"
+}
+```
+
+This endpoint retrieves a specific reservation backup username.
+
+
+
+### HTTP Request
+
+`POST http://api.earlyclaim.com/reservations/:ReservationID/backup`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the subscription backup username  to retrieve
+
+<aside class="notice">
+You must accept a subscription, if you don't the reservation will not be notified.
+</aside>
+<aside class="notice">
+Earlyclaim trace the backup username reservation and will only send 1 time, please don't abuse.
+</aside>
+
+# Bunch of Reservation
+
+Earlyclaim after the "Private Beta Launch" will send to you a queue of reservations.
+In the Startup dashboard you have to setup the web-hook url where the Earlyclaim rooster can send the informations about your user reservation.
+
+##Setting Up your Callback URL
+  
+First you'll need to prepare the page that will act as your callback URL. This URL will need to be accessible by Earlyclaim servers, and be able to receive both the POST data that is sent when an update happens, but also accept GET requests in order to verify subscriptions.
+  
+This URL should always return a 200 OK HTTP response when invoked by Earlyclaim.
+  
+##Receiving the Bunch
+
+> The rooster will send you this informations
+
+```json
+{
+    "info":{
+        "businessID": "yourBusinessID",
+        "action": "reservation",
+        "total": "<total number of reservations>",
+        "current": "<current number of reservation>"
+    },
+    "data":{
+          "subscriptionID":"subscriptionID",
+          "status":"status of reservation",
+          "username":"user username",
+          "email":"earlyclaim user email",
+          "trust":"user trust level"
+    },
+    "createdAt": "GMT time of the launch freeze reservations"
+}
+```
+
+Earlyclaim will make an HTTP POST request to your callback URL every time that there are changes (to the chosen fields or edges).
+    
+The request will have content type of application/json and the body will contain the following fields:
+
+The HTTP request will contain an X-Hub-Signature header which contains the SHA1 signature of the request payload, using the earlyclaimBusinessToken as the key, and prefixed with sha1=. Your callback endpoint can verify this signature to validate the integrity and origin of the payload.
+
+Changes are aggregated and sent in batch at most once every 5 seconds, or when the number of unsent changes exceeds 1000 - your server callback should be able to handle this level of load.
+
+<aside class="notice">
+You must accept/deny a subscription, if you don't the reservation will not be notified and the queue will be blocked and you will not able to receive all the other subscriptions
+</aside>
+<aside class="notice">
+You can ask for the backup username ass well
+</aside>
+  
 
