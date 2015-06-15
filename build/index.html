@@ -1,0 +1,485 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Earlyclaim API</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["shell","html","javascript","php"]);
+        });
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="html">html</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="php">php</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='http://earlyclaim.com'>Sign Up to submit your startup</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Earlyclaim API documentation! You can use our API to access Earlyclaim API endpoints, which a startup can comunicate with Earlyclaim database.</p>
+
+<p>We have language bindings in Shell, Node.js (comming soon), PHP (comming soon), iOS (working on)! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<h1 id="buttons">Buttons</h1>
+
+<blockquote>
+<p>To integrate the EarlyClaim buttons use this code in your frontend HTML</p>
+</blockquote>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"ec-button"</span> <span class="na">data-callback=</span><span class="s">"your callback endpoint after authorization"</span><span class="nt">&gt;&lt;/div&gt;</span> <span class="c">&lt;!-- Put this html in the place of the button --&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>
+  <span class="nx">js</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+  <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"//cdn.earlyclaim.com/sdk.js#bId=earlyclaimBusinessId"</span><span class="p">;</span>
+  <span class="nx">fjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span><span class="p">);</span>
+<span class="p">}(</span><span class="nb">document</span><span class="p">,</span> <span class="s1">'script'</span><span class="p">,</span> <span class="s1">'earlyclaim-jssdk'</span><span class="p">));</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+<pre class="highlight shell"><code><span class="c"># No shell provided</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">earlyclaimBusinessId</code> with your API key.</p>
+</blockquote>
+
+<p>Earlyclaim Buttons are pretty simple to integrate in your frontend. You can register to Earlyclaim as a startup and get your Earlyclaim Business ID</p>
+
+<p><a href="http://earlyclaim.com/learn-more/startup">Learn more</a></p>
+
+<aside class="notice">
+You must replace <code>earlyclaimBusinessId</code> with your personal API key.
+</aside>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">earlyclaimBusinessToken</code> with your Business API Token.</p>
+</blockquote>
+
+<p>Earlyclaim uses API Bearer Authorization  Tokens to allow access to the API.</p>
+
+<p>Earlyclaim expects for the API Token to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Authorization: Bearer earlyclaimBusinessToken</code></p>
+
+<aside class="notice">
+You must replace <code>earlyclaimBusinessToken</code> with your personal API key.
+</aside>
+
+<h1 id="reservations">Reservations</h1>
+
+<h2 id="get-all-the-reservations">Get All the reservations</h2>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code>curl <span class="s2">"http://api.earlyclaim.com/reservations"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"businessID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yourBusinessID"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservations"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total number of reservations&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;current number of reservations&gt;"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.earlyclaim.com/reservations/?skip=0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.earlyclaim.com/reservations/?skip=0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.earlyclaim.com/reservations/?skip=30"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMT time of the launch freeze reservations"</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all the reservations paginated. You can ask for the next page of result following the next query link.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://api.earlyclaim.com/reservations</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>skip</td>
+<td>0</td>
+<td>skip N of user reservaitons.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Remember — a happy startup  is an authenticated startup!
+</aside>
+
+<h2 id="get-a-specific-reservation">Get a Specific Reservation</h2>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code>curl <span class="s2">"http://api.earlyclaim.com/reservations/:ReservationID"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific reservation.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://api.earlyclaim.com/reservations/:ReservationID</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the subscription to retrieve</td>
+</tr>
+</tbody></table>
+
+<h2 id="accept-a-specific-reservation">Accept a Specific Reservation</h2>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"http://api.earlyclaim.com/reservations/:ReservationID/accept"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"subscribed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint accept a specific reservation.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.earlyclaim.com/reservations/:ReservationID/accept</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the subscription to accept</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You must accept a subscription if you don&rsquo;t the reservation will not be notified.
+</aside>
+
+<h2 id="deny-a-specific-reservation">Deny a Specific Reservation</h2>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"http://api.earlyclaim.com/reservations/:ReservationID/deny"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"denied"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint deny a specific reservation.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.earlyclaim.com/reservations/:ReservationID/deny</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the subscription to deny</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+If the subscription will deny the user will be notified.
+</aside>
+
+<h2 id="ask-for-a-backup-username-for-a-specific-reservation">Ask for a backup username for a Specific Reservation</h2>
+<pre class="highlight html"><code># No HTML provided
+</code></pre>
+<pre class="highlight javascript"><code><span class="err">#</span> <span class="nx">No</span> <span class="nx">node</span><span class="p">.</span><span class="nx">js</span> <span class="nx">provided</span>
+</code></pre>
+<pre class="highlight php"><code># No PHP provided
+</code></pre>
+<pre class="highlight shell"><code>curl <span class="s2">"http://api.earlyclaim.com/reservations/:ReservationID/backup"</span>
+  -H <span class="s2">"Authorization: Bearer earlyclaimBusinessToken"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"a backup username"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves a specific reservation backup username.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://api.earlyclaim.com/reservations/:ReservationID/backup</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the subscription backup username  to retrieve</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You must accept a subscription, if you don&rsquo;t the reservation will not be notified.
+</aside>
+
+<aside class="notice">
+Earlyclaim trace the backup username reservation and will only send 1 time, please don&rsquo;t abuse.
+</aside>
+
+<h1 id="bunch-of-reservation">Bunch of Reservation</h1>
+
+<p>Earlyclaim after the &ldquo;Private Beta Launch&rdquo; will send to you a queue of reservations.
+In the Startup dashboard you have to setup the web-hook url where the Earlyclaim rooster can send the informations about your user reservation.</p>
+
+<h2 id="setting-up-your-callback-url">Setting Up your Callback URL</h2>
+
+<p>First you&rsquo;ll need to prepare the page that will act as your callback URL. This URL will need to be accessible by Earlyclaim servers, and be able to receive both the POST data that is sent when an update happens, but also accept GET requests in order to verify subscriptions.</p>
+
+<p>This URL should always return a 200 OK HTTP response when invoked by Earlyclaim.</p>
+
+<h2 id="receiving-the-bunch">Receiving the Bunch</h2>
+
+<blockquote>
+<p>The rooster will send you this informations</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"info"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"businessID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yourBusinessID"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservation"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;total number of reservations&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;current number of reservation&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"subscriptionID"</span><span class="p">:</span><span class="s2">"subscriptionID"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"status of reservation"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user username"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"earlyclaim user email"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"trust"</span><span class="p">:</span><span class="s2">"user trust level"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMT time of the launch freeze reservations"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Earlyclaim will make an HTTP POST request to your callback URL every time that there are changes (to the chosen fields or edges).</p>
+
+<p>The request will have content type of application/json and the body will contain the following fields:</p>
+
+<p>The HTTP request will contain an X-Hub-Signature header which contains the SHA1 signature of the request payload, using the earlyclaimBusinessToken as the key, and prefixed with sha1=. Your callback endpoint can verify this signature to validate the integrity and origin of the payload.</p>
+
+<p>Changes are aggregated and sent in batch at most once every 5 seconds, or when the number of unsent changes exceeds 1000 - your server callback should be able to handle this level of load.</p>
+
+<aside class="notice">
+You must accept/deny a subscription, if you don&rsquo;t the reservation will not be notified and the queue will be blocked and you will not able to receive all the other subscriptions
+</aside>
+
+<aside class="notice">
+You can ask for the backup username ass well
+</aside>
+  
+
+          <h1 id="errors">Errors</h1>
+
+<p>The Earlyclaim API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&rsquo;m a teapot</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="html">html</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="php">php</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
