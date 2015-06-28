@@ -158,7 +158,10 @@ skip | 0 | skip N of user reservaitons.
 <aside class="success">
 Remember — a happy startup  is an authenticated startup!
 </aside>
-
+<aside class="notice">
+Pay attention the given email isn't the real one.
+You have to ask the email during the on-boarding process on your Website/application.
+</aside>
 ## Get a Specific Reservation
 
 ```html
